@@ -7,6 +7,7 @@ import promiseMiddleware from 'redux-promise';
 
 import reducers from './reducers/index.jsx';
 import Greet from './components/greet.jsx';
+import './index.scss'; 
 
 function configureStore(initialState = {}) {  
   const s = createStore(
