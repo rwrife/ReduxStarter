@@ -10,7 +10,9 @@ import setGreeting from './reducers/greet.js'
 
 function configureStore(initialState = {}) {  
   const s = createStore(
-    combineReducers({ setGreeting }),
+    combineReducers({
+  state: (state = {}) => state
+, setGreeting }),
     initialState,
     applyMiddleware(promiseMiddleware)
   )
