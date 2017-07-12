@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { combineReducers, applyMiddleware, createStore } from 'redux'; 
+import { applyMiddleware, createStore } from 'redux'; 
 import { Provider } from 'react-redux';
 import promiseMiddleware from 'redux-promise';
 
 
+import reducers from './reducers/index.jsx';
 import Greet from './components/greet.jsx';
-import setGreeting from './reducers/greet.js'
 
 function configureStore(initialState = {}) {  
   const s = createStore(
-    combineReducers({
-  state: (state = {}) => state
-, setGreeting }),
+    reducers,
     initialState,
     applyMiddleware(promiseMiddleware)
   )

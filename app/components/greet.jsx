@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { greet } from '../actions/index';
+import { greet } from '../actions/index.jsx';
 
 class Greet extends Component {
     constructor(props) {
         super(props);
-        this.updateGreeting.bind(this);
+
+        this.updateGreeting.bind(this);        
     }
 
     updateGreeting(text) {
@@ -14,19 +15,20 @@ class Greet extends Component {
     }
 
     render () {
+        const state = this.props;
+
         return (
             <div>
-                <input type="text" value={this.props.name} 
+                <input type="text" value={state.name} 
                     onChange={(e) => {this.updateGreeting(e.target.value)} }/>
-                <span>Hello {this.props.name}</span>
+                <span>Hello {state.name}</span>
             </div>
         );
     }
 }
 
-const mapStateToProps = ( state ) => {
-    console.log(state)
-   return { name: state.setGreeting.name };
+const mapStateToProps = ( state, ownProps ) => {
+   return { name: state.greet.name || ownProps.name };
 }
 
 
