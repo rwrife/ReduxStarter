@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { greet } from '../actions/index.jsx';
+import Input from 'material-ui/Input/Input';
 
 class Greet extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class Greet extends Component {
 
         return (
             <div>
-                <input type="text" value={state.name} 
+                <Input type="text" value={state.name} 
                     onChange={(e) => {this.updateGreeting(e.target.value)} }/>
                 <span>Hello {state.name}</span>
             </div>

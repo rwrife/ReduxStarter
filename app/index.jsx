@@ -4,10 +4,15 @@ import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import promiseMiddleware from 'redux-promise';
 
+import { MuiThemeProvider } from 'material-ui/styles';
+import 'typeface-roboto';
 
 import reducers from './reducers/index.jsx';
 import Greet from './components/greet.jsx';
 import './index.scss'; 
+
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 function configureStore(initialState = {}) {  
   const s = createStore(
@@ -31,4 +36,4 @@ class App extends Component {
     }
 }
 
-render(<App/>, document.getElementById('app'));
+render(<MuiThemeProvider><App/></MuiThemeProvider>, document.getElementById('app'));
