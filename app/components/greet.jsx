@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { greet } from '../actions/index.jsx';
+import { FormControl, FormGroup } from 'react-bootstrap';
 
 class Greet extends Component {
     constructor(props) {
@@ -19,9 +20,17 @@ class Greet extends Component {
 
         return (
             <div>
-                <input type="text" value={state.name} 
-                    onChange={(e) => {this.updateGreeting(e.target.value)} }/>
-                <span>Hello {state.name}</span>
+                <FormGroup
+                    controlId="formBasicText">       
+
+                    <FormControl
+                        type="text"
+                        value={state.name}
+                        placeholder="Enter text"
+                        onChange={(e) => {this.updateGreeting(e.target.value)}}/>
+                    
+                    <span>Hello {state.name}</span>
+                </FormGroup>
             </div>
         );
     }
