@@ -8,7 +8,7 @@ var pluginConfig = new HTMLWebpackPlugin({
 });
 
 var config = {
-    entry: __dirname + '/app/index.jsx',
+    entry: ['babel-polyfill', __dirname + '/app/index.jsx'],
     module: {
         loaders:[
             {
